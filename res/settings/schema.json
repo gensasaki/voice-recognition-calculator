@@ -1,0 +1,13 @@
+{
+  "schema": {
+    "scope": "com.yotaro.da.calculator",
+    "version": "1.0",
+    "settings": [
+      {
+        "key": "description",
+        "displayName": "You can calculate by your voice! 'Hello yotaro!'\n\n<Voice commands>\nThis segment is limited to be started up with the following voice commands.\n - Start calculator\n - Check calculator\n\n<Contact us>\nsakatuku10@gmail.com",
+        "layout": "description"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "voicePattern": [
+    {
+      "domain": "CUSTOMAPP",
+      "name": [
+        "speech test",
+        "cycling",
+        "number"
+      ],
+      "phrase": [
+        ".*",
+        ".minus",
+        ".plus"        
+      ]
+    }
+  ]
+}

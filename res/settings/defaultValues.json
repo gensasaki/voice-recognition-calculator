@@ -1,0 +1,7 @@
+{
+  "defaultValues": {
+    "scope": "com.yotaro.da.calculator",
+    "version": "1.0",
+    "settings": {}
+  }
+}

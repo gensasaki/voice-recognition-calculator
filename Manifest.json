@@ -1,0 +1,12 @@
+{
+  "package": "com.yotaro.da.calculator",
+  "manifestVersion": 1,
+  "name": "calculatorX",
+  "shortName": "calculatorX",
+  "author": {
+    "name": "ibpX"
+  },
+  "version": 1,
+  "versionName": "1.0.0",
+  "description": "Team ibpX\nYou can calculate easily by your voice!"
+}
