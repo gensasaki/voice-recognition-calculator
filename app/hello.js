@@ -28,6 +28,7 @@
  * @param  {string} trigger The trigger type of a segment.
  * @param  {object} args    The input arguments.
  */
+var convertingWords = [operators, numbers];
 
 da.segment.onpreprocess = function (trigger, args) {
     console.log('onpreprocess', { trigger: trigger, args: args });
@@ -44,8 +45,8 @@ da.segment.onstart = function (trigger, args) {
         speechObj = JSON.parse(args.recognitionSetString);
         speechStr = speechObj.SemanticAnalysisResults[0].SpeechRecogResult;
         var convertedSpeechStr = textConvert(speechStr);
-        var answer = eval(convertedSpeechStr);
-        var synthesis = String(da.SpeechSynthesis.getInstance());
+        var answer = String(eval(convertedSpeechStr));
+        var synthesis = da.SpeechSynthesis.getInstance();
         synthesis.speak('The answer is ' + answer, {
             onstart: function () {
                 console.log('speak start');
@@ -62,15 +63,11 @@ da.segment.onstart = function (trigger, args) {
     }
 
     function textConvert(speechStr) {
-        // convert stringOperator
-        for (var strOperator in operators) {
-          speechStr = speechStr.replace(new RegExp(strOperator, 'g'), operators[strOperator]);
-        }
-        // convert string to number
-        for (var strNum in numbers) {
-          speechStr = speechStr.replace(new RegExp(strNum, 'g'), numbers[strNum]);
-        }
-
+        convertingWords.forEach(function(convertingHash) {
+            for (var strKey in convertingHash) {
+                speechStr = speechStr.replace(new RegExp(strKey, 'g'), convertingHash[strKey]);
+            }
+        });
         return speechStr;
     }
 };
